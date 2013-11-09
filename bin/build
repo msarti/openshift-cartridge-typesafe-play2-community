@@ -1,0 +1,13 @@
+#!/bin/bash
+
+set -e
+
+source $OPENSHIFT_CARTRIDGE_SDK_BASH
+
+pushd ${OPENSHIFT_REPO_DIR} > /dev/null
+
+$OPENSHIFT_PLAY2_SBT_HOME/bin/sbt clean > $OPENSHIFT_PLAY2_LOG_DIR/build.log 2>&1
+$OPENSHIFT_PLAY2_SBT_HOME/bin/sbt stage >> $OPENSHIFT_PLAY2_LOG_DIR/build.log 2>&1
+
+popd
+

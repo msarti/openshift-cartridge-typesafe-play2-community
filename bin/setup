@@ -1,0 +1,14 @@
+#!/bin/bash
+
+set -e
+
+if [ -d $OPENSHIFT_PLAY2_SBT_HOME ]
+then
+  rm -rf $OPENSHIFT_PLAY2_SBT_HOME
+fi
+
+cd $OPENSHIFT_PLAY2_DIR
+curl -o sbt.tgz http://scalasbt.artifactoryonline.com/scalasbt/sbt-native-packages/org/scala-sbt/sbt/$OPENSHIFT_PLAY2_SBT_VERSION/sbt.tgz
+tar zxvf sbt.tgz sbt
+rm sbt.tgz
+
