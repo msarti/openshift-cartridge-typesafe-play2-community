@@ -39,5 +39,4 @@ Endpoints:
   - Private-IP-Name: IP
     Private-Port-Name: JPDA_PORT
     Private-Port: 8787
-Install-Build-Required: true
 
