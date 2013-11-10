@@ -24,5 +24,19 @@ Group-Overrides:
   - components:
     - typesafe-play2-0.1
     - web_proxy
-Install-Build-Required: true
+Endpoints:
+  - Private-IP-Name: IP
+    Private-Port-Name: HTTP_PORT
+    Private-Port: 9000
+    Public-Port-Name: HTTP_PROXY_PORT
+    Mappings:
+      - Frontend: ""
+        Backend: ""
+        Options: { "websocket": 1}
+      - Frontend: "/health"
+        Backend: ""
+        Options: { health: true}
+  - Private-IP-Name: IP
+    Private-Port-Name: JPDA_PORT
+    Private-Port: 8787
 
