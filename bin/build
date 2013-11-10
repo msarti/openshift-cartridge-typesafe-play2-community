@@ -4,19 +4,17 @@ set -e
 
 echo "Entering build"
 
+BASEDIR=$(cd $(dirname "$0") && pwd -P)
+
 source $OPENSHIFT_CARTRIDGE_SDK_BASH
-
-SBT_DIR=$OPENSHIFT_DATA_DIR/.sbt
-IVY_DIR=$OPENSHIFT_DATA_DIR/.ivy
-
 
 pushd ${OPENSHIFT_REPO_DIR} > /dev/null
 
 echo "Cleaning"
-$OPENSHIFT_PLAY2_SBT_HOME/bin/sbt clean > $OPENSHIFT_PLAY2_LOG_DIR/build.log 2>&1
+$BASEDIR/sbt clean > $OPENSHIFT_PLAY2_LOG_DIR/build.log 2>&1
 
 echo "Stage"
-$OPENSHIFT_PLAY2_SBT_HOME/bin/sbt stage >> $OPENSHIFT_PLAY2_LOG_DIR/build.log 2>&1
+$BASEDIR/sbt stage >> $OPENSHIFT_PLAY2_LOG_DIR/build.log 2>&1
 
 echo "Done!"
 

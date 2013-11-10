@@ -1,0 +1,4 @@
+#!/bin/bash
+
+$OPENSHIFT_PLAY2_SBT_HOME/bin/sbt -ivy "$OPENSHIFT_PLAY2_IVY_DIR" -sbt-dir "$OPENSHIFT_PLAY2_SBT_DIR" $*
+
