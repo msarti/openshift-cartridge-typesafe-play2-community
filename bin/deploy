@@ -1,8 +1,8 @@
 #!/bin/bash
 
-#!/bin/bash
-
 set -e
+
+echo "Entering deploy"
 
 source $OPENSHIFT_CARTRIDGE_SDK_BASH
 
@@ -10,8 +10,10 @@ pushd ${$OPENSHIFT_PLAY2_DIR} > /dev/null
 
 rm -rf $OPENSHIFT_PLAY2_APP_ROOT
 
+echo "Coping $OPENSHIFT_REPO_DIR/target/universal/stage to $OPENSHIFT_PLAY2_APP_ROOT"
 cp -r $OPENSHIFT_REPO_DIR/target/universal/stage $OPENSHIFT_PLAY2_APP_ROOT
 
+echo "Done!"
 
 popd
 

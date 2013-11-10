@@ -1,5 +1,9 @@
 #!/bin/bash
 
+source $OPENSHIFT_CARTRIDGE_SDK_BASH
+
+echo "Entering setup"
+
 set -e
 
 if [ -d $OPENSHIFT_PLAY2_SBT_HOME ]
@@ -7,11 +11,19 @@ then
   rm -rf $OPENSHIFT_PLAY2_SBT_HOME
 fi
 
+OPENSHIFT_PLAY2_SBT_URL="http://scalasbt.artifactoryonline.com/scalasbt/sbt-native-packages/org/scala-sbt/sbt/$OPENSHIFT_PLAY2_SBT_VERSION/sbt.tgz"
 
-cd $OPENSHIFT_PLAY2_DIR
+echo "Downloading sbt from $OPENSHIFT_PLAY2_SBT_VERSION"
+
+pushd $OPENSHIFT_PLAY2_DIR
 curl -o sbt.tgz http://scalasbt.artifactoryonline.com/scalasbt/sbt-native-packages/org/scala-sbt/sbt/$OPENSHIFT_PLAY2_SBT_VERSION/sbt.tgz
+
+echo "Installing sbt on $OPENSHIFT_PLAY2_DIR"
 tar zxvf sbt.tgz sbt
 rm sbt.tgz
 
+echo "Creating $OPENSHIFT_PLAY2_LOG_DIR"
 mkdir -p $OPENSHIFT_PLAY2_LOG_DIR
+
+popd
 

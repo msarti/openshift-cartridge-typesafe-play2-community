@@ -2,12 +2,19 @@
 
 set -e
 
+echo "Entering build"
+
 source $OPENSHIFT_CARTRIDGE_SDK_BASH
 
 pushd ${OPENSHIFT_REPO_DIR} > /dev/null
 
+echo "Cleaning"
 $OPENSHIFT_PLAY2_SBT_HOME/bin/sbt clean > $OPENSHIFT_PLAY2_LOG_DIR/build.log 2>&1
+
+echo "Stage"
 $OPENSHIFT_PLAY2_SBT_HOME/bin/sbt stage >> $OPENSHIFT_PLAY2_LOG_DIR/build.log 2>&1
+
+echo "Done!"
 
 popd
 
