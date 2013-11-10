@@ -6,6 +6,10 @@ echo "Entering deploy"
 
 source $OPENSHIFT_CARTRIDGE_SDK_BASH
 
+SBT_DIR=$OPENSHIFT_DATA_DIR/.sbt
+IVY_DIR=$OPENSHIFT_DATA_DIR/.ivy
+
+
 pushd ${$OPENSHIFT_PLAY2_DIR} > /dev/null
 
 rm -rf $OPENSHIFT_PLAY2_APP_ROOT
